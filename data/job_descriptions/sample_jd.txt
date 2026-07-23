@@ -1,0 +1,24 @@
+Data Scientist
+
+Location: Bangalore
+
+Experience:
+2+ years
+
+Required Skills:
+Python
+SQL
+Machine Learning
+Pandas
+NumPy
+Scikit-learn
+Docker
+AWS
+Git
+
+Preferred:
+Power BI
+Tableau
+
+Education:
+Bachelor's Degree in Computer Science, Engineering, Statistics or related field.
