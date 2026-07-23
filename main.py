@@ -3,6 +3,7 @@ from backend.preprocessing.text_cleaner import TextCleaner
 from backend.extractor.resume_information_extractor import ResumeInformationExtractor
 from pprint import pprint
 from backend.jd_parser.jd_parser import JDParser
+from backend.jd_parser.jd_information_extractor import JDInformationExtractor
 
 resume_path = "data/resumes/sample_resume.pdf"
 
@@ -26,3 +27,13 @@ jd_text = JDParser.read("data/job_descriptions/sample_jd.txt")
 
 print("\n===== JOB DESCRIPTION =====\n")
 print(jd_text)
+
+
+# ===============================
+# JDInformationExtractor
+# ===============================
+jd_data = JDInformationExtractor.extract(jd_text)
+
+print("\n===== JD INFORMATION =====\n")
+
+pprint(jd_data)
