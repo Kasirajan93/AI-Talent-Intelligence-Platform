@@ -1,61 +1,139 @@
-skill
-Bash
-C
-C#
-C++
-Cassandra
-CatBoost
-Classification
-Clustering
-Dart
-Data Cleaning
-Data Visualization
-Decision Trees
-Deep Learning
-DynamoDB
-EDA
-Elasticsearch
-Feature Engineering
-Firebase
-Go
-Google Colab
-Java
-JavaScript
-Julia
-Jupyter Notebook
-Kotlin
-LightGBM
-MATLAB
-Machine Learning
-MariaDB
-Matplotlib
-Microsoft SQL Server
-MongoDB
-MySQL
-Neo4j
-NumPy
-Oracle
-PHP
-Pandas
-Perl
-PostgreSQL
-Python
-R
-Random Forest
-Redis
-Regression
-Reinforcement Learning
-Ruby
-Rust
-SQLite
-Scala
-SciPy
-Scikit-learn
-Seaborn
-Statistical Analysis
-Statsmodels
-Supervised Learning
-Swift
-TypeScript
-Unsupervised Learning
-XGBoost
+skill,category,subcategory
+Python,Programming,Language
+Java,Programming,Language
+C,Programming,Language
+C++,Programming,Language
+C#,Programming,Language
+JavaScript,Programming,Language
+TypeScript,Programming,Language
+Go,Programming,Language
+Rust,Programming,Language
+Kotlin,Programming,Language
+Swift,Programming,Language
+PHP,Programming,Language
+Ruby,Programming,Language
+R,Programming,Language
+Scala,Programming,Language
+Perl,Programming,Language
+MATLAB,Programming,Language
+Julia,Programming,Language
+Dart,Programming,Language
+Shell,Programming,Language
+Bash,Programming,Language
+PowerShell,Programming,Language
+Groovy,Programming,Language
+Objective-C,Programming,Language
+Visual Basic,Programming,Language
+Fortran,Programming,Language
+COBOL,Programming,Language
+Lua,Programming,Language
+Haskell,Programming,Language
+F#,Programming,Language
+Assembly,Programming,Language
+SQL,Programming,Language
+PL/SQL,Programming,Language
+T-SQL,Programming,Language
+SAS,Programming,Language
+MySQL,Database,Database
+PostgreSQL,Database,Database
+SQLite,Database,Database
+Oracle Database,Database,Database
+Microsoft SQL Server,Database,Database
+MongoDB,Database,Database
+Redis,Database,Database
+Cassandra,Database,Database
+MariaDB,Database,Database
+DynamoDB,Database,Database
+Snowflake,Database,Database
+BigQuery,Database,Database
+Elasticsearch,Database,Database
+Neo4j,Database,Database
+CouchDB,Database,Database
+HBase,Database,Database
+Firebase Firestore,Database,Database
+Amazon Redshift,Database,Database
+IBM Db2,Database,Database
+Teradata,Database,Database
+Pandas,Data Science,Core
+NumPy,Data Science,Core
+SciPy,Data Science,Core
+Statsmodels,Data Science,Core
+Matplotlib,Data Science,Core
+Seaborn,Data Science,Core
+Plotly,Data Science,Core
+Bokeh,Data Science,Core
+OpenCV,Data Science,Core
+Feature Engineering,Data Science,Core
+Exploratory Data Analysis,Data Science,Core
+Data Visualization,Data Science,Core
+Statistical Analysis,Data Science,Core
+Hypothesis Testing,Data Science,Core
+Data Cleaning,Data Science,Core
+Data Wrangling,Data Science,Core
+Time Series Analysis,Data Science,Core
+Machine Learning,Machine Learning,Core
+Supervised Learning,Machine Learning,Core
+Unsupervised Learning,Machine Learning,Core
+Reinforcement Learning,Machine Learning,Core
+Regression,Machine Learning,Core
+Classification,Machine Learning,Core
+Clustering,Machine Learning,Core
+Decision Trees,Machine Learning,Core
+Random Forest,Machine Learning,Core
+XGBoost,Machine Learning,Core
+LightGBM,Machine Learning,Core
+CatBoost,Machine Learning,Core
+Support Vector Machine,Machine Learning,Core
+Naive Bayes,Machine Learning,Core
+K-Nearest Neighbors,Machine Learning,Core
+Scikit-learn,Machine Learning,Core
+Model Evaluation,Machine Learning,Core
+Cross Validation,Machine Learning,Core
+Hyperparameter Tuning,Machine Learning,Core
+Deep Learning,Deep Learning,Core
+Artificial Neural Networks,Deep Learning,Core
+CNN,Deep Learning,Core
+Convolutional Neural Networks,Deep Learning,Core
+RNN,Deep Learning,Core
+Recurrent Neural Networks,Deep Learning,Core
+LSTM,Deep Learning,Core
+GRU,Deep Learning,Core
+Transformer,Deep Learning,Core
+Attention Mechanism,Deep Learning,Core
+TensorFlow,Deep Learning,Core
+Keras,Deep Learning,Core
+PyTorch,Deep Learning,Core
+Computer Vision,Deep Learning,Core
+Natural Language Processing,Deep Learning,Core
+Generative AI,Deep Learning,Core
+Large Language Models,Deep Learning,Core
+Hugging Face,Deep Learning,Core
+Sentence Transformers,Deep Learning,Core
+Transfer Learning,Deep Learning,Core
+AWS,Cloud,Core
+Amazon S3,Cloud,Core
+Amazon EC2,Cloud,Core
+Amazon RDS,Cloud,Core
+AWS Lambda,Cloud,Core
+Amazon DynamoDB,Cloud,Core
+Azure,Cloud,Core
+Microsoft Azure,Cloud,Core
+Google Cloud Platform,Cloud,Core
+GCP,Cloud,Core
+Docker,DevOps,Core
+Kubernetes,DevOps,Core
+Terraform,DevOps,Core
+Jenkins,DevOps,Core
+Ansible,DevOps,Core
+CI/CD,DevOps,Core
+Git,Version Control,Core
+GitHub,Version Control,Core
+GitLab,Version Control,Core
+Bitbucket,Version Control,Core
+Power BI,Business Intelligence,Visualization
+Tableau,Business Intelligence,Visualization
+Microsoft Power BI,Business Intelligence,Visualization
+Looker,Business Intelligence,Visualization
+Qlik Sense,Business Intelligence,Visualization
+QlikView,Business Intelligence,Visualization
+Google Data Studio,Business Intelligence,Visualization

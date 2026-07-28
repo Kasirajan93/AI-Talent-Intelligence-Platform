@@ -1,22 +1,25 @@
-import fitz  # PyMuPDF
+import pdfplumber
 
 
 class PDFParser:
     """
-    Extracts text from PDF resumes.
+    Extracts text from PDF resumes using pdfplumber.
     """
 
     @staticmethod
     def extract_text(pdf_path: str) -> str:
+
         text = ""
 
         try:
-            document = fitz.open(pdf_path)
+            with pdfplumber.open(pdf_path) as pdf:
 
-            for page in document:
-                text += page.get_text()
+                for page in pdf.pages:
 
-            document.close()
+                    page_text = page.extract_text()
+
+                    if page_text:
+                        text += page_text + "\n"
 
             return text.strip()
 

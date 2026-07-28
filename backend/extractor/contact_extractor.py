@@ -2,9 +2,16 @@ import re
 
 
 class ContactExtractor:
+    """
+    Extracts contact details such as email, phone,
+    GitHub, and LinkedIn from resume text.
+    """
 
     @staticmethod
-    def extract(text: str):
+    def extract(text: str) -> dict:
+        """
+        Extract contact information from resume text.
+        """
 
         result = {
             "email": None,
@@ -43,12 +50,12 @@ class ContactExtractor:
 
         # LinkedIn
         linkedin = re.search(
-            r"linkedin\.com/in/[A-Za-z0-9_-]+",
+            r"linkedin\.com/in/[A-Za-z0-9_-]+/?",
             text,
             re.IGNORECASE
         )
 
         if linkedin:
-            result["linkedin"] = linkedin.group()
+            result["linkedin"] = linkedin.group().rstrip("/")
 
         return result

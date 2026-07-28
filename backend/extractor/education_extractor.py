@@ -3,7 +3,12 @@ import re
 
 class EducationExtractor:
 
-    DEGREE_PATTERNS = [
+    """
+    Extracts education details such as degree and
+    graduation year from resume text.
+    """
+
+    DEGREE_PATTERNS: list[str] = [
         r"\bB\.?Tech\b",
         r"\bB\.?E\.?\b",
         r"\bB\.?Sc\b",
@@ -23,7 +28,10 @@ class EducationExtractor:
     ]
 
     @staticmethod
-    def extract(text):
+    def extract(text: str) -> dict:
+        """
+        Extract degree and graduation year from resume text.
+        """
 
         education = {
             "degree": None,

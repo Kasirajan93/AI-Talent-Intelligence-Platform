@@ -1,0 +1,22 @@
+DEEP_LEARNING = [
+    "Deep Learning",
+    "Artificial Neural Networks",
+    "CNN",
+    "Convolutional Neural Networks",
+    "RNN",
+    "Recurrent Neural Networks",
+    "LSTM",
+    "GRU",
+    "Transformer",
+    "Attention Mechanism",
+    "TensorFlow",
+    "Keras",
+    "PyTorch",
+    "Computer Vision",
+    "Natural Language Processing",
+    "Generative AI",
+    "Large Language Models",
+    "Hugging Face",
+    "Sentence Transformers",
+    "Transfer Learning"
+]

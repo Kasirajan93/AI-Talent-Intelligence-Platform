@@ -2,8 +2,12 @@ import re
 
 
 class ExperienceExtractor:
+    """
+    Extracts total work experience and job titles
+    from resume text.
+    """
 
-    JOB_TITLES = [
+    JOB_TITLES: list[str] = [
         "Data Scientist",
         "Data Analyst",
         "Data Engineer",
@@ -24,14 +28,17 @@ class ExperienceExtractor:
     ]
 
     @staticmethod
-    def extract(text):
+    def extract(text: str) -> dict:
+        """
+        Extract total experience and detected job titles
+        from resume text.
+        """
 
         experience = {
             "total_experience": None,
             "job_titles": []
         }
 
-        # Find experience like "7 years", "2.5 years"
         match = re.search(
             r"(\d+(?:\.\d+)?)\s*\+?\s*(years?|yrs?)",
             text,
@@ -41,15 +48,16 @@ class ExperienceExtractor:
         if match:
             experience["total_experience"] = match.group()
 
-        # Find job titles
         text_lower = text.lower()
 
         for title in ExperienceExtractor.JOB_TITLES:
-            if title.lower() in text_lower:
+            pattern = r"\b" + re.escape(title.lower()) + r"\b"
+
+            if re.search(pattern, text_lower):
                 experience["job_titles"].append(title)
 
         experience["job_titles"] = sorted(
-            list(set(experience["job_titles"]))
+            set(experience["job_titles"])
         )
 
         return experience

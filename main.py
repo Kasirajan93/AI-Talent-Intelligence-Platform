@@ -1,39 +1,52 @@
-from backend.parser.parser import ResumeParser
-from backend.preprocessing.text_cleaner import TextCleaner
-from backend.extractor.resume_information_extractor import ResumeInformationExtractor
-from pprint import pprint
-from backend.jd_parser.jd_parser import JDParser
-from backend.jd_parser.jd_information_extractor import JDInformationExtractor
-
-resume_path = "data/resumes/sample_resume.pdf"
-
-# Parse Resume
-raw_text = ResumeParser.extract_text(resume_path)
-
-# Clean Text
-clean_text = TextCleaner.clean(raw_text)
-
-# Extract All Resume Information
-resume_data = ResumeInformationExtractor.extract(clean_text)
-
-print("\n===== RESUME INFORMATION =====\n")
-pprint(resume_data)
-
-# ===============================
-# Job Description Parsing
-# ===============================
-
-jd_text = JDParser.read("data/job_descriptions/sample_jd.txt")
-
-print("\n===== JOB DESCRIPTION =====\n")
-print(jd_text)
+from backend.ranking.candidate_ranker import CandidateRanker
+from backend.screening.resume_screener import ResumeScreener
+from backend.exporter.csv_exporter import CSVExporter
+from backend.pipeline.resume_pipeline import ResumePipeline
 
 
-# ===============================
-# JDInformationExtractor
-# ===============================
-jd_data = JDInformationExtractor.extract(jd_text)
+resume_files = ResumeScreener.get_resumes("data/resumes")
 
-print("\n===== JD INFORMATION =====\n")
+candidates = []
 
-pprint(jd_data)
+print("\n===== DETECTED RESUMES =====\n")
+
+for file in resume_files:
+    print(file)
+
+
+for resume_path in resume_files:
+
+    try:
+
+        candidate = ResumePipeline.process(
+            resume_path,
+            "data/job_descriptions/sample_jd.txt"
+        )
+
+        candidates.append(candidate)
+
+    except Exception as e:
+
+        print(f"Error processing {resume_path}: {e}")
+
+ranked_candidates = CandidateRanker.rank(candidates)
+
+CSVExporter.export(
+    ranked_candidates,
+    "outputs/candidate_rankings.csv"
+)
+
+
+print("\n========== FINAL RANKING ==========\n")
+
+
+
+for candidate in ranked_candidates:
+
+    print(f"Rank               : {candidate['rank']}")
+    print(f"Candidate          : {candidate['candidate_name']}")
+    print(f"ATS Score          : {candidate['ats_score']['total_score']}")
+    print(f"Rating             : {candidate['ats_score']['rating']}")
+    print(f"Recommendation     : {candidate['ats_score']['recommendation']}")
+    print(f"Hiring Decision    : {candidate['ats_score']['hiring_decision']}")
+    print("----------------------------------------------")

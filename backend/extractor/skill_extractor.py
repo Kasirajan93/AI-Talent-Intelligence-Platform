@@ -4,11 +4,32 @@ import re
 
 
 class SkillExtractor:
+    """
+    Extracts technical skills from resume text using a predefined
+    skills database stored in skills.csv.
+    """
+
+    _skills: list[str] | None = None
 
     @staticmethod
-    def load_skills():
+    def load_skills() -> list[str]:
+        """
+        Load skills from skills.csv.
 
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        The skills are cached after the first read to avoid
+        reading the CSV file for every resume.
+        """
+
+        if SkillExtractor._skills is not None:
+            return SkillExtractor._skills
+
+        base_dir = os.path.dirname(
+            os.path.dirname(
+                os.path.dirname(
+                    os.path.abspath(__file__)
+                )
+            )
+        )
 
         skills_path = os.path.join(
             base_dir,
@@ -17,7 +38,7 @@ class SkillExtractor:
             "skills.csv"
         )
 
-        skills = []
+        skills: list[str] = []
 
         with open(skills_path, "r", encoding="utf-8") as file:
             reader = csv.DictReader(file)
@@ -25,14 +46,25 @@ class SkillExtractor:
             for row in reader:
                 skills.append(row["skill"].strip())
 
-        return skills
+        SkillExtractor._skills = skills
+
+        return SkillExtractor._skills
 
     @staticmethod
-    def extract(text):
+    def extract(text: str) -> list[str]:
+        """
+        Extract matching technical skills from resume text.
+
+        Args:
+            text: Cleaned resume text.
+
+        Returns:
+            A sorted list of unique detected skills.
+        """
 
         text = text.lower()
 
-        detected_skills = []
+        detected_skills: list[str] = []
 
         skills = SkillExtractor.load_skills()
 

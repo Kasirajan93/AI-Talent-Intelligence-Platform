@@ -8,8 +8,15 @@ class TextCleaner:
 
     @staticmethod
     def clean(text: str) -> str:
+        """
+        Normalize extracted resume text by removing
+        unnecessary whitespace and blank lines.
+        """
 
-        # Remove extra spaces
+        if not text:
+            return ""
+
+        # Remove extra spaces and tabs
         text = re.sub(r"[ \t]+", " ", text)
 
         # Remove multiple blank lines

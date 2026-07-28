@@ -1,0 +1,22 @@
+DATABASES = [
+    "MySQL",
+    "PostgreSQL",
+    "SQLite",
+    "Oracle Database",
+    "Microsoft SQL Server",
+    "MongoDB",
+    "Redis",
+    "Cassandra",
+    "MariaDB",
+    "DynamoDB",
+    "Snowflake",
+    "BigQuery",
+    "Elasticsearch",
+    "Neo4j",
+    "CouchDB",
+    "HBase",
+    "Firebase Firestore",
+    "Amazon Redshift",
+    "IBM Db2",
+    "Teradata"
+]

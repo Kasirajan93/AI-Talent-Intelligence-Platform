@@ -1,5 +1,4 @@
 import re
-
 from backend.extractor.skill_extractor import SkillExtractor
 
 
@@ -16,35 +15,61 @@ class JDInformationExtractor:
             "education": None
         }
 
-        # ---------- Job Title ----------
+        # ----------------------------
+        # Job Title
+        # ----------------------------
         lines = [line.strip() for line in jd_text.split("\n") if line.strip()]
-
         if lines:
             jd["job_title"] = lines[0]
 
-        # ---------- Experience ----------
-        match = re.search(
-            r"(\d+\+?\s*(?:years?|yrs?))",
+        # ----------------------------
+        # Experience
+        # ----------------------------
+        exp = re.search(r'(\d+\+?\s*years?)', jd_text, re.IGNORECASE)
+        if exp:
+            jd["experience"] = exp.group(1)
+
+        # ----------------------------
+        # Education
+        # ----------------------------
+        edu = re.search(
+            r'Education:\s*(.*)',
             jd_text,
             re.IGNORECASE
         )
 
-        if match:
-            jd["experience"] = match.group()
+        if edu:
+            jd["education"] = edu.group(1).strip()
 
-        # ---------- Education ----------
-        education_match = re.search(
-            r"(Bachelor.*|Master.*|B\.Tech.*|B\.E.*|BAMS.*)",
+        # ----------------------------
+        # Required Skills Section
+        # ----------------------------
+        required_match = re.search(
+            r"Required Skills:(.*?)(Preferred:|Education:|$)",
             jd_text,
-            re.IGNORECASE
+            re.DOTALL | re.IGNORECASE
         )
 
-        if education_match:
-            jd["education"] = education_match.group().strip()
+        if required_match:
+            required_text = required_match.group(1)
 
-        # ---------- Skills ----------
-        skills = SkillExtractor.extract(jd_text)
+            
 
-        jd["required_skills"] = skills
+            jd["required_skills"] = SkillExtractor.extract(required_text)
+
+            
+
+        # ----------------------------
+        # Preferred Skills Section
+        # ----------------------------
+        preferred_match = re.search(
+            r"Preferred:(.*?)(Education:|$)",
+            jd_text,
+            re.DOTALL | re.IGNORECASE
+        )
+
+        if preferred_match:
+            preferred_text = preferred_match.group(1)
+            jd["preferred_skills"] = SkillExtractor.extract(preferred_text)
 
         return jd

@@ -1,0 +1,21 @@
+MACHINE_LEARNING = [
+    "Machine Learning",
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Reinforcement Learning",
+    "Regression",
+    "Classification",
+    "Clustering",
+    "Decision Trees",
+    "Random Forest",
+    "XGBoost",
+    "LightGBM",
+    "CatBoost",
+    "Support Vector Machine",
+    "Naive Bayes",
+    "K-Nearest Neighbors",
+    "Scikit-learn",
+    "Model Evaluation",
+    "Cross Validation",
+    "Hyperparameter Tuning"
+]
